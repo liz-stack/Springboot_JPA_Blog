@@ -32,7 +32,7 @@ public class User {
 	//ex. 오라클이면 시퀀스, mysql이면 auto incresement 등
 	private int id; //시퀀스, auto-increment
 	
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 30, unique = true)
 	private String username;
 	
 	@Column(nullable = false, length = 100)// pw 해쉬로 변경해 암호화할 예정
