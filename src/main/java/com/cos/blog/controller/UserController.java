@@ -1,7 +1,10 @@
 package com.cos.blog.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.cos.blog.service.UserService;
 
 @Controller
 public class UserController {

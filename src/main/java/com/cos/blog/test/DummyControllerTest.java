@@ -99,17 +99,14 @@ public class DummyControllerTest {
 	
 	//http://localhost:8000/b log/dummy/join (요청)
 	//http의 Body에 username, password, email 데이터를 가지고 요청
-	@PostMapping("/dummy/join")
-	public String join(User user) { //key=value(약속된 규칙)
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		System.out.println(user.getEmail());
-		System.out.println(user.getId());
-		System.out.println(user.getRole());
-		System.out.println(user.getCreateDate());
-		
-		user.setRole(RoleType.USER);
-		userRepository.save(user);
-		return "회원가입이 완료되었습니다.";
-	}
+	/*
+	 * @PostMapping("/dummy/join") public String join(User user) { //key=value(약속된
+	 * 규칙) System.out.println(user.getUsername());
+	 * System.out.println(user.getPassword()); System.out.println(user.getEmail());
+	 * System.out.println(user.getId()); System.out.println(user.getRole());
+	 * System.out.println(user.getCreateDate());
+	 * 
+	 * user.setRole(RoleType.USER); userRepository.save(user); return
+	 * "회원가입이 완료되었습니다."; }
+	 */
 }
