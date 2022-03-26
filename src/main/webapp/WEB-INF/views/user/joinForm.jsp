@@ -3,7 +3,7 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-	<form action="">
+	<form>
 		<!-- <form action="/user/join" method="POST"> 예전 방식이라 쓰지 않을 것-->
 		<div class="form-group">
 			<label for="username">Username</label> 
@@ -22,5 +22,5 @@
 	<button id="btn-save" class="btn btn-primary">회원가입완료</button>
 </div>
 
-<script src="/blog/js/user.js"></script>
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
