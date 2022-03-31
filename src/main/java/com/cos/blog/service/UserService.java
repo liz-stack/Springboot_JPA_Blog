@@ -10,17 +10,16 @@ import com.cos.blog.model.RoleType;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.UserRepository;
 
-import ch.qos.logback.core.encoder.Encoder;
-
 //스프링이 컴포턴트 스캔을 통해서 Bean에 등록을 해준다.IoC를 해줌(메모리에 대신 띄워준다는 뜻)
 @Service
 public class UserService {
 		
 		@Autowired
+		private BCryptPasswordEncoder encoder;
+	
+		@Autowired
 		private UserRepository userRepository;
 		
-		@Autowired
-		private BCryptPasswordEncoder encoder;
 		
 		@Transactional
 		public void join(User user) {
@@ -29,5 +28,6 @@ public class UserService {
 			user.setPassword(encPassword);
 			user.setRole(RoleType.USER);
 			userRepository.save(user);
+			
 		}
 }

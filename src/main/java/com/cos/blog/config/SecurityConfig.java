@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private PrincipalDetailService principalDetailService;
 	
 	//1. Bean 어노테이션은 메서드에 붙여서 객체 생성시 사용
-	@Bean //IOC가 된다(함수가 리턴하는 값을 스프링이 관리_
+	@Bean //IOC가 된다(함수가 리턴하는 값을 스프링이 관리)
 	public BCryptPasswordEncoder encodePWD() {
 		return new BCryptPasswordEncoder(); 
 	}
@@ -38,10 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	// 3. 필터링
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http 
+			http 
 			.csrf().disable() //csrf토큰 비활성화(테스트시 걸어두는게 좋음)
 			.authorizeRequests() //리퀘스트가 들어올때
-				.antMatchers("/", "/auth/**", "/js/**", "/css/**")
+				.antMatchers("/", "/auth/**", "/js/**", "/css/**", "/image/**", "/dummy/**")
 				.permitAll() //auth 로 들어오는 건 모두 허용
 				.anyRequest() //아닌 다른요청은
 				.authenticated() //인증필요
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.formLogin()
 				.loginPage("/auth/loginForm") //인증 되지않은 요청은 로그인페이지로
 				.loginProcessingUrl("/auth/loginProc") // 스프링 시큐리티가 해당 주소로 요청오는 로그인을 가로채서 대신 로그인해준다
-				.defaultSuccessUrl("/") //로그인 후에 홈으로(실패: failureUrl() )
-				;
+				.defaultSuccessUrl("/"); //로그인 후에 홈으로(실패: failureUrl() )
+				
 	}
 }

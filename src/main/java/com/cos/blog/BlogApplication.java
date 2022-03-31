@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(exclude = SecurityAutoConfiguration.class, scanBasePackages ={"com.cos.blog.config.auth.PrincipalDetail"})
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 //@ComponentScan(basePackages= {"com.cos.blog.config.auth.PrincipalDetail"})
 public class BlogApplication {
 
