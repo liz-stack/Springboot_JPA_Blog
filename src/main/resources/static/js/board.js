@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", () => { //()=>{} 쓰는이유?  this를 바인딩하기 위해서 사용.
 			this.save();
 		});
+		$("#btn-delete").on("click", () => { 
+			this.deleteById();
+		});
 	},
 
 	save: function() {
@@ -15,7 +18,7 @@ let index = {
 		$.ajax({//회원가입 수행 요청
 			type: "POST",
 			url: "/api/board",
-			data: JSON.stringify(data), 
+			data: JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
 			dataType: "json"
 		}).done(function(resp) {
@@ -28,6 +31,23 @@ let index = {
 		});
 	},
 	
+	
+	deleteById: function() {
+		var id = $("#id").text();
+		
+		$.ajax({//회원가입 수행 요청
+			type: "DELETE",
+			url: "/api/board/"+id,
+			dataType: "json"
+		}).done(function(resp) {
+			alert("삭제가 완료되었습니다");
+			console.log(resp);
+			location.href = "/";
+		}).fail(function(error) {
+			alert(JSON.stringify(error));
+		});
+	},
+
 }
 
 index.init();

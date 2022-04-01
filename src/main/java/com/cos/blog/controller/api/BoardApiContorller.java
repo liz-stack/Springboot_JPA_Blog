@@ -3,6 +3,8 @@ package com.cos.blog.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,4 +29,9 @@ public class BoardApiContorller {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); // object Object 리턴
 	}
 
+	@DeleteMapping("/api/board/{id}")
+	public ResponseDto<Integer> deleteById(@PathVariable int id){
+		boardService.delete(id);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
 }
